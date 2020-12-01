@@ -38,5 +38,10 @@ namespace IITU_voenka.Domain.Repositories.EntityFramework
             context.ServiceItem.Remove(new ServiceItem() { Id = id });
             context.SaveChanges();
         }
+
+        public IQueryable<ServiceItem> GetServiceItem()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
