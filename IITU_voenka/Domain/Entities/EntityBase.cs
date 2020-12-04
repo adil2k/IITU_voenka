@@ -13,7 +13,7 @@ namespace IITU_voenka.Domain.Entities
         [Required]
         public Guid Id { get; set; }
 
-        [Display(Name = "Название")]
+        [Display(Name = "Название (заголовок)")]
         public virtual string Title { get; set; }
 
         [Display(Name = "Краткое описание")]
@@ -26,13 +26,13 @@ namespace IITU_voenka.Domain.Entities
         public virtual string TitleImagePath { get; set; }
 
         [Display(Name = "SEO метатег Title")]
-        public virtual string MetaTitle { get; set; }
+        public string MetaTitle { get; set; }
 
-        [Display(Name = "SEO метатег Discription")]
-        public virtual string MetaDiscription { get; set; }
+        [Display(Name = "SEO метатег Description")]
+        public string MetaDescription { get; set; }
 
         [Display(Name = "SEO метатег Keywords")]
-        public virtual string MetaKeywords { get; set; }
+        public string MetaKeywords { get; set; }
 
         [DataType(DataType.Time)]
         public DateTime DateAdded { get; set; }

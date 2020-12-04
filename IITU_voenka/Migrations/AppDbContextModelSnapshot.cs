@@ -98,7 +98,7 @@ namespace IITU_voenka.Migrations
                         {
                             Id = new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2020, 12, 1, 13, 31, 54, 790, DateTimeKind.Utc).AddTicks(7601),
+                            DateAdded = new DateTime(2020, 12, 2, 12, 3, 31, 661, DateTimeKind.Utc).AddTicks(6974),
                             Text = "Содержание заполняется администратором",
                             Title = "Главная"
                         },
@@ -106,7 +106,7 @@ namespace IITU_voenka.Migrations
                         {
                             Id = new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"),
                             CodeWord = "PageServices",
-                            DateAdded = new DateTime(2020, 12, 1, 13, 31, 54, 791, DateTimeKind.Utc).AddTicks(3982),
+                            DateAdded = new DateTime(2020, 12, 2, 12, 3, 31, 662, DateTimeKind.Utc).AddTicks(2665),
                             Text = "Содержание заполняется администратором",
                             Title = "Наши услуги"
                         },
@@ -114,7 +114,7 @@ namespace IITU_voenka.Migrations
                         {
                             Id = new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"),
                             CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2020, 12, 1, 13, 31, 54, 791, DateTimeKind.Utc).AddTicks(4173),
+                            DateAdded = new DateTime(2020, 12, 2, 12, 3, 31, 662, DateTimeKind.Utc).AddTicks(2830),
                             Text = "Содержание заполняется администратором",
                             Title = "Контакты"
                         });
@@ -150,7 +150,7 @@ namespace IITU_voenka.Migrations
                         new
                         {
                             Id = "8af10596-b018-4fe7-a380-7d6a14c70b74",
-                            ConcurrencyStamp = "2355834d-ea3f-4464-abbd-6924c58c6796",
+                            ConcurrencyStamp = "148cbd61-14e9-4169-bafd-3f2ffa103834",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -249,13 +249,13 @@ namespace IITU_voenka.Migrations
                         {
                             Id = "3b62472e--4f66-49fa-a20f-e7685b9565db8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0e2da2f3-b3b3-4ea6-bdbf-06d10a653617",
+                            ConcurrencyStamp = "f055a4dc-3263-46e4-acd4-9967eda47945",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBBABjuL5Avdc5dICgGTWESeJYsmzolCK1tyF538hsRRe5WGq4ednoLE3VDSFvgOpQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA5BbareMnLWtSbEwD96fhLFFoVqV5WqNIEXi7d9f/TadYr3lp084naxDt06WXXJeQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,

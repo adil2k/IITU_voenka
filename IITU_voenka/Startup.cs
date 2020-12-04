@@ -57,8 +57,18 @@ namespace IITU_voenka
                 options.SlidingExpiration = true;
             });
 
+            //настраиваем политику авторизации для Аdmin area
+            services.AddAuthorization(x =>
+            {
+                x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
+            });
+
+            
             //добавляем сервисы для контроллеров и представлений (MVC)
-            services.AddControllersWithViews()
+            services.AddControllersWithViews(x =>
+                {
+                    x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
+                })
                 //выставляем совместимость с asp.net core 3.0
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
         }
@@ -84,6 +94,7 @@ namespace IITU_voenka
             //регистриуруем нужные нам маршруты
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("admin","{area:exists}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }

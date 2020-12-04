@@ -12,10 +12,10 @@ namespace IITU_voenka.Domain.Entities
         [Display(Name = "Название услуги")]
         public override string Title { get; set; }
 
-        [Display(Name = "Краткое описание")]
+        [Display(Name = "Краткое описание услуги")]
         public override string Subtitle { get; set; }
 
-        [Display(Name = "Полное описание")]
+        [Display(Name = "Полное описание услуги")]
         public override string Text { get; set; }
     }
 }

@@ -16,12 +16,12 @@ namespace IITU_voenka.Domain.Repositories.EntityFramework
 
         public IQueryable<ServiceItem> GetServiceItems()
         {
-            return context.ServiceItem;
+            return context.ServiceItems;
         }
 
         public ServiceItem GetServiceItemById(Guid id)
         {
-            return context.ServiceItem.FirstOrDefault(x => x.Id == id);
+            return context.ServiceItems.FirstOrDefault(x => x.Id == id);
         }
 
         public void SaveServiceItem(ServiceItem entity)
@@ -35,13 +35,8 @@ namespace IITU_voenka.Domain.Repositories.EntityFramework
 
         public void DeleteServiceItem(Guid id)
         {
-            context.ServiceItem.Remove(new ServiceItem() { Id = id });
+            context.ServiceItems.Remove(new ServiceItem() { Id = id });
             context.SaveChanges();
-        }
-
-        public IQueryable<ServiceItem> GetServiceItem()
-        {
-            throw new NotImplementedException();
         }
     }
 }

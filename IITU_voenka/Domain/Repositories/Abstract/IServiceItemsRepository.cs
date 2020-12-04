@@ -8,7 +8,7 @@ namespace IITU_voenka.Domain.Repositories.Abstract
 {
     public interface IServiceItemsRepository
     {
-        IQueryable<ServiceItem> GetServiceItem();
+        IQueryable<ServiceItem> GetServiceItems();
         ServiceItem GetServiceItemById(Guid id);
         void SaveServiceItem(ServiceItem entity);
         void DeleteServiceItem(Guid id);
