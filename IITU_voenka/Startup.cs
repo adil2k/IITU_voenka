@@ -26,8 +26,9 @@ namespace IITU_voenka
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //подкл конфиг из appsetting.json
+            //подключаем конфиг из appsetting.json
             Configuration.Bind("Project", new Config());
+
             //подключаем нужный функционал приложения в качестве сервисов
             services.AddTransient<ITextFieldsRepository, EFTextFieldsRepository>();
             services.AddTransient<IServiceItemsRepository, EFServiceItemsRepository>();
@@ -50,35 +51,35 @@ namespace IITU_voenka
             //настраиваем authentication cookie
             services.ConfigureApplicationCookie(options =>
             {
-                options.Cookie.Name = "iituMilitaryAuth";
+                options.Cookie.Name = "myCompanyAuth";
                 options.Cookie.HttpOnly = true;
                 options.LoginPath = "/account/login";
                 options.AccessDeniedPath = "/account/accessdenied";
                 options.SlidingExpiration = true;
             });
 
-            //настраиваем политику авторизации для Аdmin area
+            //настраиваем политику авторизации для Admin area
             services.AddAuthorization(x =>
             {
                 x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
             });
 
-            
             //добавляем сервисы для контроллеров и представлений (MVC)
             services.AddControllersWithViews(x =>
-                {
-                    x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
-                })
+            {
+                x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
+            })
                 //выставляем совместимость с asp.net core 3.0
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //!!! порядок регистрации middleware очень важен
+
+            //в процессе разработки нам важно видеть какие именно ошибки
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-            }
 
             //подключаем поддержку статичных файлов в приложении (css, js и т.д.)
             app.UseStaticFiles();
@@ -91,10 +92,10 @@ namespace IITU_voenka
             app.UseAuthentication();
             app.UseAuthorization();
 
-            //регистриуруем нужные нам маршруты
+            //регистриуруем нужные нам маршруты (ендпоинты)
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("admin","{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute("admin", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
