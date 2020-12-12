@@ -15,6 +15,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MySql.Data;
+
 
 namespace IITU_voenka
 {
@@ -75,7 +77,7 @@ namespace IITU_voenka
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //!!! пор€док регистрации middleware очень важен
+          
 
             //в процессе разработки нам важно видеть какие именно ошибки
             if (env.IsDevelopment())
