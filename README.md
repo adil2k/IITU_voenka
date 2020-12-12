@@ -5,4 +5,4 @@ models, controllers, CRUD, views, master page
 
 database, tables, migrations, methods
 
-authorization and authentication with asp.net Identity
+authorization and authentication with asp.net Identity, navbar
